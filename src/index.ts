@@ -18,15 +18,15 @@ tagsToBase64(tags);
 renderTags(tags);
 
 const invoice = new Invoice({
-	sellerName: 'هادي',
+	sellerName: 'Salla',
 	vatRegistrationNumber: '1234567891',
-	invoiceTimestamp: '2021-07-12T14:25:09Z',
+	invoiceTimestamp: '2021-12-04T00:00:00Z',
 	invoiceTotal: '100.00',
 	invoiceVatTotal: '15.00',
 });
 
-invoice.toTlv();
-invoice.toBase64();
-invoice.render().then((qrcode) => {
-	console.log(qrcode);
-});
+console.log(invoice.toTlv());
+//console.log(invoice.toBase64());
+//invoice.render().then((qrcode) => {
+//	console.log(qrcode);
+//});
