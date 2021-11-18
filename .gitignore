@@ -122,3 +122,4 @@ dist
 .vscodeignore
 .vsctest
 /lib
+.npmrc

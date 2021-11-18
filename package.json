@@ -35,8 +35,8 @@
 		"preversion": "npm run lint",
 		"version": "npm run format && git add -A src",
 		"postversion": "git push && git push --tags",
-		"prepare": "npm run build"
-
+		"prepare": "npm run build",
+		"publish": "npm publish --access public"
 	},
 	"homepage": "https://github.com/axenda/zatca#readme",
 	"repository": {
@@ -53,6 +53,9 @@
 		"generation",
 		"axenda"
 	],
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org/"
+	},
 	"author": "Hadi Albinsaad",
 	"license": "MIT"
 }
