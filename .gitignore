@@ -123,3 +123,4 @@ dist
 .vsctest
 /lib
 .npmrc
+/coverage

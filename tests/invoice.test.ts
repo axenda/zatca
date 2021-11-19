@@ -1,4 +1,17 @@
-import { Invoice } from '../src';
+import { Invoice, toBase64 } from '../src';
+
+test('Invoice.toTlv() returns a valid base64 string using toBase64()', () => {
+	const invoice = new Invoice({
+		sellerName: 'Axenda',
+		vatRegistrationNumber: '1234567891',
+		invoiceTimestamp: '2021-12-04T00:00:00Z',
+		invoiceTotal: '100.00',
+		invoiceVatTotal: '15.00',
+	});
+
+	expect(toBase64(invoice.toTlv()))
+		.toBe('AQZBeGVuZGECCjEyMzQ1Njc4OTEDFDIwMjEtMTItMDRUMDA6MDA6MDBaBAYxMDAuMDAFBTE1LjAw');
+});
 
 test('Invoice.toBase64() returns a valid base64 string', () => {
 	const invoice = new Invoice({

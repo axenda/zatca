@@ -1,4 +1,5 @@
-import { renderTags, Tag, tagsToBase64 } from '../src';
+import { renderTags, Tag, tagsToBase64, toBase64, toHex, toTlv } from '../src';
+import { Buffer } from 'buffer';
 
 test('tagsToBase64() generates a valid base64 string from tags', () => {
 	const tags: Tag[] = [
@@ -10,6 +11,28 @@ test('tagsToBase64() generates a valid base64 string from tags', () => {
 	];
 	expect(tagsToBase64(tags))
 		.toBe('AQZBeGVuZGECCjEyMzQ1Njc4OTEDFDIwMjEtMTItMDRUMDA6MDA6MDBaBAYxMDAuMDAFBTE1LjAw');
+});
+
+test('toBase64() generates a valid base64 string from tags using toTlv()', () => {
+	const tags: Tag[] = [
+		new Tag(1, 'Axenda'),
+		new Tag(2, '1234567891'),
+		new Tag(3, '2021-12-04T00:00:00Z'),
+		new Tag(4, '100.00'),
+		new Tag(5, '15.00'),
+	];
+	expect(toBase64(toTlv(tags)))
+		.toBe('AQZBeGVuZGECCjEyMzQ1Njc4OTEDFDIwMjEtMTItMDRUMDA6MDA6MDBaBAYxMDAuMDAFBTE1LjAw');
+});
+
+test('toHex() generates a valid hex string utf-8 encoded', () => {
+	const hexStrInUtf8 = toHex(23);
+	const hexStrInHex = Buffer
+		.from(hexStrInUtf8, 'utf-8')
+		.toString('hex');
+	
+	expect(parseInt(hexStrInHex, 16))
+		.toBe(23);
 });
 
 test('tagsToBase64() generates a valid base64 string from tags using arabic seller name', () => {

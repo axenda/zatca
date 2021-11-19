@@ -18,20 +18,16 @@ interface IInvoice {
  * Invoice class
  */
 export class Invoice {
-	private readonly _data: IInvoice;
+	private readonly _tlv: string;
 
 	constructor(invoice: IInvoice) {
-		this._data = invoice;
-	}
-
-	private _getTags() {
-		return [
-			new Tag(1, this._data.sellerName),
-			new Tag(2, this._data.vatRegistrationNumber),
-			new Tag(3, this._data.invoiceTimestamp),
-			new Tag(4, this._data.invoiceTotal),
-			new Tag(5, this._data.invoiceVatTotal),
-		];
+		this._tlv = toTlv([
+			new Tag(1, invoice.sellerName),
+			new Tag(2, invoice.vatRegistrationNumber),
+			new Tag(3, invoice.invoiceTimestamp),
+			new Tag(4, invoice.invoiceTotal),
+			new Tag(5, invoice.invoiceVatTotal),
+		]);
 	}
 
 	/**
@@ -39,7 +35,7 @@ export class Invoice {
 	 * @return {string}
 	 */
 	toTlv(): string {
-		return toTlv(this._getTags());
+		return this._tlv;
 	}
 
 	/**
@@ -47,7 +43,7 @@ export class Invoice {
 	 * @return {string}
 	 */
 	toBase64(): string {
-		return toBase64(this.toTlv());
+		return toBase64(this._tlv);
 	}
 
 	/**

@@ -4,7 +4,6 @@
 	"description": "",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
-	"type": "module",
 	"files": [
 		"lib",
 		"src"
@@ -27,7 +26,7 @@
 	},
 	"scripts": {
 		"setup": "npm install",
-		"dev": "nodemon src/index.ts",
+		"dev": "nodemon src/internal/internal.ts",
 		"build": "rm -rf lib && tsc",
 		"start": "node lib/index.js",
 		"test": "jest",
