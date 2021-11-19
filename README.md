@@ -23,6 +23,26 @@ npm i --save @axenda/zatca
 
 ## Usage
 
+### Summary
+
+Simple, all you need to generate a QR code is:
+
+```typescript
+import { Invoice } from '@axenda/zatca';
+
+const invoice = new Invoice({
+	sellerName: 'Axenda',
+	vatRegistrationNumber: '1234567891',
+	invoiceTimestamp: '2021-12-04T00:00:00Z',
+	invoiceTotal: '100.00',
+	invoiceVatTotal: '15.00',
+});
+
+const imageData = await invoice.render();
+
+// Read the following sections for more details.
+```
+
 ### Import
 
 First, import Invoice class or Tag class to represent an invoice QR code:
@@ -107,24 +127,6 @@ Use the image data to display the QR code in browser:
 <!-- For Angular -->
 <img [src]="imageData"/>
 <!-- Just use the imageData variable no matter what framework you use  -->
-```
-
-### Summary
-
-Simple, all you need to generate a QR code is:
-
-```typescript
-import { Invoice } from '@axenda/zatca';
-
-const invoice = new Invoice({
-	sellerName: 'Axenda',
-	vatRegistrationNumber: '1234567891',
-	invoiceTimestamp: '2021-12-04T00:00:00Z',
-	invoiceTotal: '100.00',
-	invoiceVatTotal: '15.00',
-});
-
-const imageData = await invoice.render();
 ```
 
 ## Tests
