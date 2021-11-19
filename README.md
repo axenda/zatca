@@ -126,16 +126,16 @@ npm test
 
 ## Package roadmap
 
-- [x] Support ZATCA QR code for phase 1
+- [x] Support ZATCA invoice QR code phase 1
 - [ ] Review package API consistency
-- [ ] Support ZATCA QR code for phase 2
+- [ ] Support ZATCA invoice QR code phase 2
 
 ## Contributing
 
 We welcome [contributions](https://github.com/axenda/zatca/graphs/contributors) of all kinds from anyone. Please take a
 moment to review the [guidelines for contributing](CONTRIBUTING.md).
 
-* [Bug reports](https://github.com/axenda/zatca/wiki/Report-a-Bug)
+* [Bug reports](https://github.com/axenda/zatca/issues/new)
 * [Feature requests](CONTRIBUTING.md#features)
 * [Pull requests](CONTRIBUTING.md#pull-requests)
 
