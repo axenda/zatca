@@ -1,7 +1,7 @@
 # ZATCA (Fatoorah) QR-Code Implementation
 
 [![build](https://travis-ci.org/user/project.svg?branch=master)](https://travis-ci.org/user/project)
-[![Coverage Status](https://coveralls.io/repos/github/axenda/zatca/badge.svg?branch=main)](https://coveralls.io/github/axenda/zatca?branch=main)
+[![codecov](https://codecov.io/gh/axenda/zatca/branch/main/graph/badge.svg?token=T52NJXGE0O)](https://codecov.io/gh/axenda/zatca)
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/user/project/master/LICENSE)
 
 An unofficial package to help developers implement ZATCA (Fatoora) QR code easily which is required for e-invoicing in
