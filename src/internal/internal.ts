@@ -12,7 +12,7 @@ import { toHex } from '../utils/to-hex';
 const tags: Tag[] = [
 	new Tag(1, 'Axenda'),
 	new Tag(2, '1234567891'),
-	new Tag(3, '2021-07-12T14:25:09Z'),
+	new Tag(3, '2021-12-04T00:00:00Z'),
 	new Tag(4, '100.00'),
 	new Tag(5, '15.00'),
 ];

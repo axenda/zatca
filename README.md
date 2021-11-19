@@ -1,6 +1,8 @@
 # ZATCA (Fatoorah) QR-Code Implementation
 
-[![build](https://travis-ci.org/user/project.svg?branch=master)](https://travis-ci.org/user/project)
+[![NPM](https://nodei.co/npm/@axenda/zatca.png?mini=true)](https://npmjs.org/package/@axenda/zatca)
+
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/axenda/zatca/Running%20Code%20Coverage/main)
 [![codecov](https://codecov.io/gh/axenda/zatca/branch/main/graph/badge.svg?token=T52NJXGE0O)](https://codecov.io/gh/axenda/zatca)
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/user/project/master/LICENSE)
 
@@ -11,53 +13,131 @@ Saudi Arabia.
 
 ## Installation
 
+To get started, install the package:
+
 ```bash
 npm i --save @axenda/zatca
 ```
 
 ## Usage
 
-### Generate TLV
+### Import
+
+First, import Invoice class or Tag class to represent an invoice QR code:
 
 ```typescript
+import { Invoice } from '@axenda/zatca';
+// or
+import { Tag } from '@axenda/zatca';
+```
+
+### Representing an invoice QR code
+
+Second, create an instance of Invoice or an array of Tag class:
+
+```typescript
+const invoice = new Invoice({
+	sellerName: 'Axenda',
+	vatRegistrationNumber: '1234567891',
+	invoiceTimestamp: '2021-12-04T00:00:00Z',
+	invoiceTotal: '100.00',
+	invoiceVatTotal: '15.00',
+});
+// or
+const tags: Tag[] = [
+	new Tag(1, 'Axenda'),
+	new Tag(2, '1234567891'),
+	new Tag(3, '2021-12-04T00:00:00Z'),
+	new Tag(4, '100.00'),
+	new Tag(5, '15.00'),
+];
+```
+
+### Generate TLV
+
+Now you can generate TLV string from the invoice or from the tags array:
+
+```typescript
+const tlv = invoice.toTlv();
+// or
+import { toTlv } from '@axenda/zatca';
+
+const tlv = toTlv(tags)
 ```
 
 ### Generate Base64
 
-```typescript
-```
-
-### Render QR Code
-
-You can generate image data (png) from base64 string and render it in browser.
+You cloud generate Base64 string from the invoice or from the tags array:
 
 ```typescript
+const base64 = invoice.toBase64();
+// or
+import { tagsToBase64 } from '@axenda/zatca';
+
+const base64 = tagsToBase64(tags);
 ```
 
-## Documentation
+### Render QR code
 
-| Argument      | Description                                                                      | Mandatory      | Type                    |  Rules                                                                                                     |
-|:-------------:|:---------------------------------------------------------------------------------|:--------------:|:-----------------------:|:----------------------------------------------------------------------------------------------------------:|
-| 1             | Description of argument 1                                                        | True / False   | Type                    |                                                                                                            | 
-| 2             | Description of argument 2                                                        | True / False   | Type                    |                                                                                                            | 
-| 3             | Description of argument 3                                                        | True / False   | Type                    |                                                                                                            | 
+You can generate image data (png) from base64 string and render it in browser:
+
+```typescript
+const imageData = await invoice.render();
+// or
+import { renderTags } from '@axenda/zatca';
+
+const imageData = await renderTags(tags);
+```
+
+### Use QR code image data
+
+Use the image data to display the QR code in browser:
+
+```html
+<img src='{imageData}' alt="Invoice QR Code">
+```
+
+### Summary
+
+Simple, all you need to generate a QR code is:
+
+```typescript
+import { Invoice } from '@axenda/zatca';
+
+const invoice = new Invoice({
+	sellerName: 'Axenda',
+	vatRegistrationNumber: '1234567891',
+	invoiceTimestamp: '2021-12-04T00:00:00Z',
+	invoiceTotal: '100.00',
+	invoiceVatTotal: '15.00',
+});
+
+const imageData = await invoice.render();
+```
+
+## Tests
+
+To run test suites, first install dependencies, then run `npm test`:
+
+```bash
+npm install
+npm test
+```
 
 ## Package roadmap
 
--   [x] Feature 1.
--   [ ] Feature 2.
--   [ ] Feature 3.
--   [ ] Feature 4.
--   [ ] Feature 5.
--   [ ] Feature 6.
+- [x] Support ZATCA QR code for phase 1
+- [ ] Review package API consistency
+- [ ] Support ZATCA QR code for phase 2
 
 ## Contributing
 
-**https://github.com/user/project**
+We welcome [contributions](https://github.com/axenda/zatca/graphs/contributors) of all kinds from anyone. Please take a
+moment to review the [guidelines for contributing](CONTRIBUTING.md).
 
-## Bibliography
-
-- It is always a good practise to support your work with scientific/ademic literature.
+* [Bug reports](https://github.com/axenda/zatca/wiki/Report-a-Bug)
+* [Feature requests](CONTRIBUTING.md#features)
+* [Pull requests](CONTRIBUTING.md#pull-requests)
 
 ## License
 
