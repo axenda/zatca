@@ -9,6 +9,8 @@
 An unofficial package to help developers implement ZATCA (Fatoora) QR code easily which is required for e-invoicing in
 Saudi Arabia.
 
+> ✨ You could use it in both frontend and backend Nodejs projects.
+
 > ✅ Validated to have the same output as ZATCA's SDK as of 18 November 2021.
 
 ## Installation
@@ -58,11 +60,13 @@ const tags: Tag[] = [
 Now you can generate TLV string from the invoice or from the tags array:
 
 ```typescript
-const tlv = invoice.toTlv();
-// or
+invoice.toTlv();
+
+// or using tags array
+
 import { toTlv } from '@axenda/zatca';
 
-const tlv = toTlv(tags)
+toTlv(tags)
 ```
 
 ### Generate Base64
@@ -70,11 +74,13 @@ const tlv = toTlv(tags)
 You cloud generate Base64 string from the invoice or from the tags array:
 
 ```typescript
-const base64 = invoice.toBase64();
-// or
+invoice.toBase64();
+
+// or using tags array
+
 import { tagsToBase64 } from '@axenda/zatca';
 
-const base64 = tagsToBase64(tags);
+tagsToBase64(tags);
 ```
 
 ### Render QR code
@@ -82,11 +88,13 @@ const base64 = tagsToBase64(tags);
 You can generate image data (png) from base64 string and render it in browser:
 
 ```typescript
-const imageData = await invoice.render();
-// or
+await invoice.render();
+
+// or using tags array
+
 import { renderTags } from '@axenda/zatca';
 
-const imageData = await renderTags(tags);
+await renderTags(tags);
 ```
 
 ### Use QR code image data
@@ -94,7 +102,11 @@ const imageData = await renderTags(tags);
 Use the image data to display the QR code in browser:
 
 ```html
-<img src='{imageData}' alt="Invoice QR Code">
+<!-- For React -->
+<img src={imageData} alt="Invoice QR Code">
+<!-- For Angular -->
+<img [src]="imageData"/>
+<!-- Just use the imageData variable no matter what framework you use  -->
 ```
 
 ### Summary
@@ -136,9 +148,9 @@ We welcome [contributions](https://github.com/axenda/zatca/graphs/contributors) 
 moment to review the [guidelines for contributing](CONTRIBUTING.md).
 
 * [Bug reports](https://github.com/axenda/zatca/issues/new)
-* [Feature requests](CONTRIBUTING.md#features)
-* [Pull requests](CONTRIBUTING.md#pull-requests)
+* [Feature requests](CONTRIBUTING.md#-feature-requests)
+* [Pull requests](CONTRIBUTING.md#-pull-requests)
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
