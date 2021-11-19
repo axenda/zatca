@@ -1,6 +1,4 @@
-import { Tag } from '../src/models/tag';
-import { tagsToBase64 } from '../src/utils/to-base64';
-import { renderTags } from '../src/utils/render-tags';
+import { renderTags, Tag, tagsToBase64 } from '../src';
 
 test('tagsToBase64() generates a valid base64 string from tags', () => {
 	const tags: Tag[] = [

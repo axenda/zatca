@@ -1,11 +1,13 @@
 {
 	"name": "@axenda/zatca",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
+	"type": "module",
 	"files": [
-		"lib/**/*"
+		"lib",
+		"src"
 	],
 	"dependencies": {
 		"qrcode": "^1.4.4"

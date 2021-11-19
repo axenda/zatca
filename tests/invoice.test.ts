@@ -1,4 +1,4 @@
-import { Invoice } from '../src/models/invoice';
+import { Invoice } from '../src';
 
 test('Invoice.toBase64() returns a valid base64 string', () => {
 	const invoice = new Invoice({
