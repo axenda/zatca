@@ -1,13 +1,13 @@
 # ZATCA (Fatoorah) QR-Code Implementation
 
-[![npm version](https://badge.fury.io/js/recht.svg)](https://badge.fury.io/js/recht)
 [![build](https://travis-ci.org/user/project.svg?branch=master)](https://travis-ci.org/user/project)
-[![Coverage Status](https://coveralls.io/repos/github/user/project/badge.svg?branch=master)](https://coveralls.io/github/user/project?branch=master)
-[![dependencies Status](https://david-dm.org/user/project/status.svg)](https://david-dm.org/user/project)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/user/project/master/LICENSE)
+[![Coverage Status](https://coveralls.io/repos/github/axenda/zatca/badge.svg?branch=main)](https://coveralls.io/github/axenda/zatca?branch=main)
+[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/user/project/master/LICENSE)
 
 An unofficial package to help developers implement ZATCA (Fatoora) QR code easily which is required for e-invoicing in
 Saudi Arabia.
+
+> ✅ Validated to have the same output as ZATCA's SDK as of 18 November 2021.
 
 ## Installation
 
