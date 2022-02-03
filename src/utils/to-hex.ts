@@ -1,3 +1,4 @@
+import { Buffer } from 'buffer';
 /**
  *  Convert a string to a hex string encoded with UTF-8
  * @param {number} value
