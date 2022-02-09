@@ -1,5 +1,6 @@
 import { Tag } from '../models/tag';
 import { toTlv } from './to-tlv';
+import { Buffer } from 'buffer';
 
 /**
  * Converts a tags array to a base64 string using the TLV encoding
