@@ -1,6 +1,6 @@
 {
 	"name": "@axenda/zatca",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
@@ -21,7 +21,7 @@
 		"jest": "^27.3.1",
 		"nodemon": "^2.0.7",
 		"ts-jest": "^27.0.7",
-		"ts-node": "^9.1.1",
+		"ts-node": "^10.7.0",
 		"typescript": "^4.5.2"
 	},
 	"scripts": {
@@ -52,7 +52,10 @@
 		"e-invoicing",
 		"qr-code",
 		"generation",
-		"axenda"
+		"axenda",
+		"typescript",
+		"saudi-arabia",
+		"fatoora"
 	],
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org/"
